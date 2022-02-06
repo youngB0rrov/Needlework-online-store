@@ -7,11 +7,13 @@ const PORT = process.env.PORT || 5000
 // проинициализировать app
 const app = express()
 const cors = require('cors')
+const router = require('./routes/index.js');
 
 // решение проблемы с заголовками cors
 app.use(cors())
 // подключение express.json(), чтобы сервер мог парсить json-формат
 app.use(express.json())
+app.use('/api', router)
 
 const start = async () => {
   try {
